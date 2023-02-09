@@ -14,20 +14,20 @@
 void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
-    questions[0] = (question) { categories[0], "This language is used to design the basic structure of web pages.", "HTML", 100, 0 };
-    questions[1] = (question) { categories[0], "Lines of code that are ignored by the compiler.", "Comments", 200, 0 };  
-    questions[2] = (question) { categories[0], "A programming language that is converted into machine instructions without a compiler is called this.", "Interpreted", 300, 0 };
-    questions[3] = (question) { categories[0], "This language was created by James Gosling and Sun Microsystems Inc starting in 1991.", "Java", 400, 0 };
+    questions[0] = (question) { categories[0], "This language is used to design the basic structure of web pages.", "HTML", 100, false };
+    questions[1] = (question) { categories[0], "Lines of code that are ignored by the compiler.", "Comments", 200, false };  
+    questions[2] = (question) { categories[0], "A programming language that is converted into machine instructions without a compiler is called this.", "Interpreted", 300, false };
+    questions[3] = (question) { categories[0], "This language was created by James Gosling and Sun Microsystems Inc starting in 1991.", "Java", 400, false };
 
-    questions[4] = (question) { categories[1], "This type of search cuts the data set in half each time it fails to find the correct answer.", "Binary", 100, 0 };
-    questions[5] = (question) { categories[1], "This type of function calls itself within its own code block.", "Recursive", 200, 0 };
-    questions[6] = (question) { categories[1], "A non-comparative sorting algorithm that uses buckets and a positional number system.", "Radix", 300, 0 };
-    questions[7] = (question) { categories[1], "The last name of the creator of the algorithm for finding the shortest paths between nodes in a weighted graph.", "Dijkstra", 400, 0 };
+    questions[4] = (question) { categories[1], "This type of search cuts the data set in half each time it fails to find the correct answer.", "Binary", 100, false };
+    questions[5] = (question) { categories[1], "This type of function calls itself within its own code block.", "Recursive", 200, false };
+    questions[6] = (question) { categories[1], "A non-comparative sorting algorithm that uses buckets and a positional number system.", "Radix", 300, false };
+    questions[7] = (question) { categories[1], "The last name of the creator of the algorithm for finding the shortest paths between nodes in a weighted graph.", "Dijkstra", 400, false };
 
-    questions[8] = (question) { categories[2], "This is what DBMS stands for.", "Database Management System", 100, 0 };
-    questions[9] = (question) { categories[2], "The most popular type of database used today.", "Oracle", 200, 0 };
-    questions[10] = (question) { categories[2], "A database that runs over the internet is said to reside here.", "Cloud", 300, 0 };
-    questions[11] = (question) { categories[2], "The first commercial database language to use Edgar F Codd's relational model.", "SQL", 400, 0 };
+    questions[8] = (question) { categories[2], "This is what DBMS stands for.", "Database Management System", 100, false };
+    questions[9] = (question) { categories[2], "The most popular type of database used today.", "Oracle", 200, false };
+    questions[10] = (question) { categories[2], "A database that runs over the internet is said to reside here.", "Cloud", 300, false };
+    questions[11] = (question) { categories[2], "The first commercial database language to use Edgar F Codd's relational model.", "SQL", 400, false };
 }
 
 // Displays each of the remaining categories and question dollar values that have not been answered
