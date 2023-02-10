@@ -34,6 +34,23 @@ void initialize_game(void)
 void display_categories(void)
 {
     // print categories and dollar values for each unanswered question in questions array
+    int value;
+    printf("-------------------------------------------\n");
+    printf("| Programming | Algorithms  |  Databases  |\n");
+    printf("-------------------------------------------\n");
+    for (int i = 0; i < 4; i++) {
+        value = i * 100 + 100;
+        printf("|     ");
+        for (int j = 0; j < 3; j++) {
+            if (!already_answered(categories[j], value)
+                printf("%d", value);
+            else
+                printf("---");
+            printf("     |     ");
+        }
+        printf("\n");
+    }
+    printf("-------------------------------------------\n");
 }
 
 // Displays the question for the category and dollar value
