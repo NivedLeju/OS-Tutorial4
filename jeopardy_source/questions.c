@@ -34,14 +34,17 @@ void initialize_game(void)
 void display_categories(void)
 {
     // print categories and dollar values for each unanswered question in questions array
-    int value;
+    // print category headings
     printf("-------------------------------------------\n");
     printf("| Programming | Algorithms  |  Databases  |\n");
     printf("-------------------------------------------\n");
+    // two loops, one for each of the 4 rows, and another for each of the 3 columns
+    int value;
     for (int i = 0; i < 4; i++) {
         value = i * 100 + 100;
         printf("|     ");
         for (int j = 0; j < 3; j++) {
+            // if question not already answered, print the value, otherwise print ---
             if (!already_answered(categories[j], value)
                 printf("%d", value);
             else
@@ -56,7 +59,16 @@ void display_categories(void)
 // Displays the question for the category and dollar value
 void display_question(char *category, int value)
 {
-
+    // find the question number
+    int num;
+    for (int i = 0; i < 12; i + 4) {
+        if (strcmp(questions[i], category) == 0)) {
+            num = i + (value / 100) - 1;
+        }
+    }
+    // print the question
+    printf("Question for category %s, value %d:\n");
+    printf("%s", questions[num].question);
 }
 
 // Returns true if the answer is correct for the question for that category and dollar value
