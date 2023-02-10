@@ -53,5 +53,11 @@ bool valid_answer(char *category, int value, char *answer)
 bool already_answered(char *category, int value)
 {
     // lookup the question and see if it's already been marked as answered
-    return false;
+    int num;
+    for (int i = 0; i < 12; i + 4) {
+        if (strcmp(questions[i], category) == 0)) {
+            num = i + (value / 100) - 1;
+        }
+    }
+    return questions[num].answered;
 }
