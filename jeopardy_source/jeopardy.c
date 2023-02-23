@@ -27,7 +27,7 @@ void tokenize(char *input, char **tokens);
 void show_results(player *players, int num_players);
 
 
-int main(int argc, char *argv[])
+int main()
 {
     // An array of 4 players, may need to be a pointer if you want it set dynamically
     player players[NUM_PLAYERS];
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
             i--;
         }
         else{
-            strcpy(*players[i].name, buffer);
+            strcpy(players[i].name, buffer);
             players[i].score = 0;
         }
     }
@@ -59,10 +59,52 @@ int main(int argc, char *argv[])
     {
         // Call functions from the questions and players source files
         // Execute the game until all questions are answered
-
+        char answer[BUFFER_LEN];
+        // some more code, and then:
+        tokenize(buffer, answer);
         // Display the final results and exit
                 
     }
 
+    
+    show_results(players, NUM_PLAYERS);
     return EXIT_SUCCESS;
+}
+
+void tokenize(char *input, char *answer) {
+    const char delimiter[2] = " ";
+    char *token = strtok(input, delimiter);
+    if(token!= NULL)
+        if(strcmp(token, "who") != 0 && strcmp(token, "what") != 0)
+            return;
+
+    if((token = strtok(NULL, delimiter)) != NULL)
+        if(strcmp(token, "is") != 0)
+            return;
+
+    token = strtok(NULL, "\n");
+    strcpy(answer, token);
+}
+
+void show_results(player *players, int num_players) {
+    int name = 0;
+    int score = 0;
+    int winner = 0;
+
+    for(int i = 0; i < num_players; i++) {
+        if((int) strlen((const char*)players[i].name) > name)
+            name = strlen(*players[i].name);
+
+        if(players[i].score > score) {
+            score = players[i].score;
+            winner = i;
+        }
+    }
+
+    printf("Scores: \n");
+    for(int i = 0; i < num_players; i++)
+        printf("%-*s: %d\n", name, *players[i].name, players[i].score);
+
+    printf("Winner: %s", *players[winner].name);
+    
 }

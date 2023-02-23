@@ -26,7 +26,7 @@ static char categories[NUM_CATEGORIES][MAX_LEN] = {
 // Questions struct for each question
 typedef struct {
     char* category[MAX_LEN];
-    char *question[MAX_LEN];
+    char* question[MAX_LEN];
     char* answer[MAX_LEN];
     int value;
     bool answered;
