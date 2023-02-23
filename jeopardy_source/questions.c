@@ -11,8 +11,15 @@
 #include "questions.h"
 
 // Initializes the array of questions for the game
-void initialize_game(void)
-{
+void initialize_game(void){
+
+
+    printf("     ____.                                   .___\n");
+    printf("    |    | ____  ____ ___________ _______  __| _/__.__.\n");
+    printf("    |    |/ __ \\/  _ \\\\____ \\__  \\\\_  __ \\/ __ <   |  |\n");
+    printf("/\\__|    \\  ___(  <_> )  |_> > __ \\|  | \\/ /_/ |\\___  |\n");
+    printf("\\________|\\___  >____/|   __(____  /__|  \\____ |/ ____|\n");
+    printf("              \\/      |__|       \\/           \\/\\/     \n");
     // initialize each question struct and assign it to the questions array
     questions[0] = (question) { categories[0], "This language is used to design the basic structure of web pages.", "HTML", 100, false };
     questions[1] = (question) { categories[0], "Lines of code that are ignored by the compiler.", "Comments", 200, false };  
@@ -33,6 +40,7 @@ void initialize_game(void)
 // Displays each of the remaining categories and question dollar values that have not been answered
 void display_categories(void)
 {
+    
     // print categories and dollar values for each unanswered question in questions array
     // print category headings
     printf("-------------------------------------------\n");
@@ -45,7 +53,7 @@ void display_categories(void)
         printf("|     ");
         for (int j = 0; j < 3; j++) {
             // if question not already answered, print the value, otherwise print ---
-            if (!already_answered(categories[j], value)
+            if (!already_answered(categories[j], value))
                 printf("%d", value);
             else
                 printf("---");
@@ -61,8 +69,8 @@ void display_question(char *category, int value)
 {
     // find the question number
     int num;
-    for (int i = 0; i < 12; i + 4) {
-        if (strcmp(questions[i], category) == 0)) {
+    for (int i = 0; i < 12; i += 4) {
+        if (strcmp(questions[i].category, category) == 0) {
             num = i + (value / 100) - 1;
         }
     }
@@ -75,6 +83,11 @@ void display_question(char *category, int value)
 bool valid_answer(char *category, int value, char *answer)
 {
     // Look into string comparison functions
+    for(int i = 0; i < NUM_QUESTIONS; i++){
+        // if(){
+
+        // }
+    }
     return false;
 }
 
@@ -83,8 +96,8 @@ bool already_answered(char *category, int value)
 {
     // lookup the question and see if it's already been marked as answered
     int num;
-    for (int i = 0; i < 12; i + 4) {
-        if (strcmp(questions[i], category) == 0)) {
+    for (int i = 0; i < 12; i += 4) {
+        if (strcmp(questions[i].category, category) == 0) {
             num = i + (value / 100) - 1;
         }
     }

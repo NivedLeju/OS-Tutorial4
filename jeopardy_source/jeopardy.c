@@ -5,6 +5,7 @@
  * All rights reserved.
  *
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,7 +19,7 @@
 #define NUM_PLAYERS 4
 
 // Put global environment variables here
-
+extern question questions[NUM_QUESTIONS];
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
 
@@ -38,17 +39,30 @@ int main(int argc, char *argv[])
     initialize_game();
 
     // Prompt for players names
-    
     // initialize each of the players in the array
-
+    printf("Enter names: \n");
+    for (int i = 0; i < NUM_PLAYERS; i++){
+        printf("Player %d", i);
+        fgets(buffer, BUFFER_LEN, stdin);
+        strtok(buffer, "\n");
+        if (player_exists(players, NUM_PLAYERS, buffer)){
+            printf("Player \"%s\" already exists. Please enter a new name.", buffer);
+            i--;
+        }
+        else{
+            strcpy(*players[i].name, buffer);
+            players[i].score = 0;
+        }
+    }
     // Perform an infinite loop getting command input from users until game ends
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         // Call functions from the questions and players source files
-
         // Execute the game until all questions are answered
 
         // Display the final results and exit
+                
     }
+
     return EXIT_SUCCESS;
 }
