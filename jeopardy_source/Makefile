@@ -10,6 +10,7 @@ EXE = jeopardy.exe
 jeopardy.exe : jeopardy.o questions.o players.o
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ -lm 
 
+
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< 
 
